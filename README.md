@@ -8,7 +8,7 @@ generate wav audio data from text strings. You can then use the raw binary data
 to output to a file, send as a http download, get as a base64-encoded data URI 
 string, or whatever else.
 
-## install
+## Install
 
 ```
 $ npm install espeak
