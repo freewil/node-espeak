@@ -21,5 +21,9 @@
   },
   "engines": {
     "node": "0.8.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/freewil/node-espeak.git"
   }
 }
