@@ -1,6 +1,6 @@
 {
   "name": "espeak",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "text-to-speech using espeak cli program",
   "main": "./index",
   "scripts": {
