@@ -1,13 +1,16 @@
 {
   "name": "espeak",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "text-to-speech using espeak cli program",
   "main": "./index",
   "scripts": {
     "test": "mocha",
     "prepublish": "coffee -c index.coffee"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/freewil/node-espeak.git"
+  },
   "author": "Sean Lavine <sean@eternalrise.com>",
   "license": "MIT",
   "keywords": [
@@ -21,9 +24,5 @@
   },
   "engines": {
     "node": ">=0.6.x <0.9.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/freewil/node-espeak.git"
   }
 }
