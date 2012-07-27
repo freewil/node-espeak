@@ -8,7 +8,7 @@
     "prepublish": "coffee -c index.coffee"
   },
   "repository": "",
-  "author": "Sean Lavine",
+  "author": "Sean Lavine <sean@eternalrise.com>",
   "license": "MIT",
   "keywords": [
     "espeak",

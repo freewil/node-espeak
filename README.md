@@ -17,7 +17,7 @@ $ npm install espeak
 ## Usage
 
 ```js
-var epseak = require('espeak');
+var espeak = require('espeak');
 
 // optionally set the path to the `espeak` cli program if it's not in your PATH
 //espeak.cmd = '/usr/bin/espeak';
