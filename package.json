@@ -1,0 +1,25 @@
+{
+  "name": "espeak",
+  "version": "0.0.0",
+  "description": "text-to-speech using espeak cli program",
+  "main": "./index",
+  "scripts": {
+    "test": "mocha",
+    "prepublish": "coffee -c index.coffee"
+  },
+  "repository": "",
+  "author": "Sean Lavine",
+  "license": "MIT",
+  "keywords": [
+    "espeak",
+    "speech",
+    "speak"
+  ],
+  "devDependencies": {
+    "mocha": "~1.3.0",
+    "coffee-script": "~1.3.3"
+  },
+  "engines": {
+    "node": ">=0.4.0 <0.9.0"
+  }
+}
