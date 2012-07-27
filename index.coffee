@@ -21,7 +21,16 @@ speak = (text, args..., cb) ->
   espeak.stdout.on 'end', ->
     if not cbCalled
       cbCalled = true
-      cb null, new Wav Buffer.concat buffers, buffersLength
+      
+      # concat all the buffers into one buffer
+      # this can be replaced with Buffer.concat() in node v0.8.x
+      buffer = new Buffer buffersLength
+      targetStart = 0
+      for b in buffers
+        b.copy buffer, targetStart
+        targetStart += b.length
+        
+      cb null, new Wav buffer
   espeak.stdin.end text
 
 class Wav

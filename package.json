@@ -20,7 +20,7 @@
     "coffee-script": "~1.3.3"
   },
   "engines": {
-    "node": "0.8.x"
+    "node": ">=0.4.x <0.9.0"
   },
   "repository": {
     "type": "git",
