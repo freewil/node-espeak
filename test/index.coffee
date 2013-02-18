@@ -23,3 +23,10 @@ describe 'espeak', ->
     assert.equal espeak.cmd, 'espeak'
     espeak.cmd = '/usr/bin/espeak'
     assert.equal espeak.cmd, '/usr/bin/espeak'
+    
+  it 'should emit user-friendly error if espeak is unavailable', (done) ->
+    espeak.cmd = '/path/not/exist/espeak'
+    espeak.speak 'test', (err, wav) ->
+      assert.ok err
+      assert.strictEqual err.message, "Failed to spawn eSpeak, make sure it's installed and espeak.cmd is set properly"
+      done()

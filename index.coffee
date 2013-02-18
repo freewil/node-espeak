@@ -1,5 +1,4 @@
 {spawn} = require 'child_process'
-cmd = 'espeak'
 
 speak = (text, args..., cb) ->
   args = if args.length then args[0] else []
@@ -10,11 +9,11 @@ speak = (text, args..., cb) ->
   
   argsDefault = ['--stdin', '--stdout']
   args = args.concat argsDefault
-  espeak = spawn cmd, args
-  espeak.stdout.on 'error', (e) ->
+  espeak = spawn module.exports.cmd, args
+  espeak.stderr.on 'data', (buffer) ->
     if not cbCalled
       cbCalled = true
-      cb e
+      cb new Error "Failed to spawn eSpeak, make sure it's installed and espeak.cmd is set properly"
   espeak.stdout.on 'data', (buffer) ->
     buffers.push buffer
     buffersLength += buffer.length
@@ -31,6 +30,11 @@ speak = (text, args..., cb) ->
         targetStart += b.length
         
       cb null, new Wav buffer
+  espeak.stdin.on 'error', (e) ->
+    # handle EPIPE errors in stderr 'data' event
+    return if e.code is 'EPIPE'
+    throw e
+      
   espeak.stdin.end text
 
 class Wav
@@ -40,4 +44,4 @@ class Wav
 
 module.exports =
   speak: speak
-  cmd: cmd
+  cmd: 'espeak'
